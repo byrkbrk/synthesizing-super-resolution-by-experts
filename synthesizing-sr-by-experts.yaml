@@ -12,3 +12,4 @@ dependencies:
   - gradio
   - huggingface_hub
   - pillow
+  - pyyaml
