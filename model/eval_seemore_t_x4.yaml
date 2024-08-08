@@ -1,0 +1,12 @@
+# Modified from https://huggingface.co/spaces/eduardzamfir/SeeMoreDetails/blob/main/configs/eval_seemore_t_x4.yml
+scale: 4
+in_chans: 3
+num_experts: 3
+img_range: 1.0
+num_layers: 6
+embedding_dim: 36
+use_shuffle: True
+lr_space: exp
+topk: 1
+recursive: 2
+global_kernel_size: 11
