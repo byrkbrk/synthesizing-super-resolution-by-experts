@@ -12,9 +12,10 @@ class SRSynthesizer(object):
     checkpoint_name = "SeemoRe_T_X4.pth"
     model_config_name = "eval_seemore_t_x4.yaml"
 
-    def __init__(self):
+    def __init__(self,
+                 device: str = None):
         self.module_dir = os.path.dirname(__file__)
-        self.device = torch.device("mps")
+        self.device = self.initialize_device(device)
         self.download_model_checkpoint(self.__class__.repo_id,
                                        self.__class__.checkpoint_name)
         self.model = self.instantiate_model(self.__class__.checkpoint_name,
