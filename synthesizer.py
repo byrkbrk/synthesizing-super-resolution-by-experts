@@ -22,6 +22,11 @@ class SRSynthesizer(object):
                                             self.__class__.model_config_name,
                                             self.device)
 
+    def synthesize(self, image):
+        """Returns synthesized image for given image"""
+        if isinstance(image, str):
+            image = self.read_image(image)
+        pass
 
     def instantiate_model(self, checkpoint_name, model_config_name, device):
         """Returns instantiated model for given arguments"""
