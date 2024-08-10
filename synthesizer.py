@@ -52,6 +52,17 @@ class SRSynthesizer(object):
         hf_hub_download(repo_id=repo_id,
                         filename=checkpoint_name,
                         local_dir=location)
+    
+    def initialize_device(self, device: str):
+        """Returns device based on GPU availability"""
+        if device is None:
+            if torch.cuda.is_available():
+                device = "cuda"
+            elif torch.backends.mps.is_available():
+                device = "mps"
+            else:
+                device = "cpu"
+        return torch.device(device)
 
 
 if __name__ == "__main__":
