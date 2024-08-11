@@ -27,15 +27,25 @@ class SRSynthesizer(object):
         if create_dirs: self.create_dirs(self.module_dir)
 
     @torch.inference_mode()
-    def synthesize(self, image):
+    def synthesize(self, image, show=True, save=True, return_input=False):
         """Returns synthesized image for given image"""
         if isinstance(image, str):
             image = self.read_image(image)
+            synthesized_image_name = image
+        else:
+            synthesized_image_name = "synthesized_image.png"
+
         synthesized_image = self.model(transforms.functional.to_tensor(image).to(self.device))
         synthesized_image = transforms.functional.to_pil_image(synthesized_image.squeeze())
-        print(image.size)
-        print(synthesized_image.size)
-        synthesized_image.save("synthesized_image.png")
+        if show:
+            synthesized_image.show()
+        if save:
+            synthesized_image.save(os.path.join(self.module_dir, 
+                                                "synthesized-images",
+                                                synthesized_image_name))
+        if return_input:
+            return image, synthesized_image
+        return synthesized_image
 
     def instantiate_model(self, checkpoint_name, model_config_name, device):
         """Returns instantiated model for given arguments"""
@@ -79,9 +89,9 @@ class SRSynthesizer(object):
                 device = "cpu"
         return torch.device(device)
     
-    def read_image(self, image_path):
-        """Returns opened image file for given image path"""
-        return Image.open(image_path)
+    def read_image(self, root, base_folder, image_name):
+        """Returns opened image file for given image name"""
+        return Image.open(os.path.join(root, base_folder, image_name))
     
     def create_dirs(self, root: str) -> None:
         """Creates required directories during inference under root"""
