@@ -4,7 +4,6 @@ import torch
 from torchvision import transforms
 from PIL import Image
 from model.seemore import SeemoRe
-from torch.nn.parallel import DataParallel, DistributedDataParallel
 from huggingface_hub import hf_hub_download
 
 
