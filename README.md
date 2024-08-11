@@ -1,1 +1,1 @@
-# Synthesize Super Resolution Image by Experts
+# Synthesize Super Resolution Image by Experts Mining
