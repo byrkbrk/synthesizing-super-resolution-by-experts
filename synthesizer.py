@@ -30,8 +30,8 @@ class SRSynthesizer(object):
     def synthesize(self, image, show=True, save=True, return_input=False):
         """Returns synthesized image for given image"""
         if isinstance(image, str):
-            image = self.read_image(image)
             synthesized_image_name = image
+            image = self.read_image(self.module_dir, "low-res-images", image)
         else:
             synthesized_image_name = "synthesized_image.png"
 
