@@ -15,7 +15,8 @@ class SRSynthesizer(object):
     model_config_name = "eval_seemore_t_x4.yaml"
 
     def __init__(self,
-                 device: str = None):
+                 device: str = None,
+                 create_dirs: bool = True):
         self.module_dir = os.path.dirname(__file__)
         self.device = self.initialize_device(device)
         self.download_model_checkpoint(self.__class__.repo_id,
@@ -23,7 +24,9 @@ class SRSynthesizer(object):
         self.model = self.instantiate_model(self.__class__.checkpoint_name,
                                             self.__class__.model_config_name,
                                             self.device)
+        if create_dirs: self.create_dirs(self.module_dir)
 
+    @torch.inference_mode()
     def synthesize(self, image):
         """Returns synthesized image for given image"""
         if isinstance(image, str):
@@ -79,6 +82,12 @@ class SRSynthesizer(object):
     def read_image(self, image_path):
         """Returns opened image file for given image path"""
         return Image.open(image_path)
+    
+    def create_dirs(self, root: str) -> None:
+        """Creates required directories during inference under root"""
+        dir_names = ["low-res-images", "synthesized-images"]
+        for dir_name in dir_names:
+            os.makedirs(os.path.join(root, dir_name), exist_ok=True)
 
 
 if __name__ == "__main__":
