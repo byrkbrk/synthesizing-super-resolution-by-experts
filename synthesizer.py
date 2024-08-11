@@ -34,8 +34,9 @@ class SRSynthesizer(object):
         else:
             synthesized_image_name = "synthesized_image.png"
 
-        synthesized_image = self.model(transforms.functional.to_tensor(image).to(self.device))
-        synthesized_image = transforms.functional.to_pil_image(synthesized_image.squeeze())
+        synthesized_image = self.model(transforms.ToTensor()(image).to(self.device))
+        synthesized_image = transforms.Compose([lambda x: torch.clamp(x, 0, 1),
+                                                transforms.ToPILImage()])(synthesized_image.squeeze().cpu())
         if show:
             image.show()
             synthesized_image.show()
@@ -101,6 +102,5 @@ class SRSynthesizer(object):
 
 
 if __name__ == "__main__":
-    image_name = "model1_smile.png"
     image_name = "penguin.png"
     SRSynthesizer().synthesize(image_name)
