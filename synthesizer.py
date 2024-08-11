@@ -1,6 +1,8 @@
 import os
 import yaml
 import torch
+from torchvision import transforms
+from PIL import Image
 from model.seemore import SeemoRe
 from torch.nn.parallel import DataParallel, DistributedDataParallel
 from huggingface_hub import hf_hub_download
@@ -26,7 +28,11 @@ class SRSynthesizer(object):
         """Returns synthesized image for given image"""
         if isinstance(image, str):
             image = self.read_image(image)
-        pass
+        synthesized_image = self.model(transforms.functional.to_tensor(image).to(self.device))
+        synthesized_image = transforms.functional.to_pil_image(synthesized_image.squeeze())
+        print(image.size)
+        print(synthesized_image.size)
+        synthesized_image.save("synthesized_image.png")
 
     def instantiate_model(self, checkpoint_name, model_config_name, device):
         """Returns instantiated model for given arguments"""
@@ -69,7 +75,11 @@ class SRSynthesizer(object):
             else:
                 device = "cpu"
         return torch.device(device)
+    
+    def read_image(self, image_path):
+        """Returns opened image file for given image path"""
+        return Image.open(image_path)
 
 
 if __name__ == "__main__":
-    SRSynthesizer()
+    SRSynthesizer().synthesize("model1_smile.png")
