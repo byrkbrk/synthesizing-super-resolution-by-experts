@@ -37,6 +37,7 @@ class SRSynthesizer(object):
         synthesized_image = self.model(transforms.functional.to_tensor(image).to(self.device))
         synthesized_image = transforms.functional.to_pil_image(synthesized_image.squeeze())
         if show:
+            image.show()
             synthesized_image.show()
         if save:
             synthesized_image.save(os.path.join(self.module_dir, 
@@ -100,4 +101,6 @@ class SRSynthesizer(object):
 
 
 if __name__ == "__main__":
-    SRSynthesizer().synthesize("model1_smile.png")
+    image_name = "model1_smile.png"
+    image_name = "penguin.png"
+    SRSynthesizer().synthesize(image_name)
