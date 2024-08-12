@@ -15,5 +15,11 @@ if __name__ == "__main__":
         inputs=[gr.Image(type="pil", label="Input")],
         outputs=ImageSlider(type="pil", label="Output"),
         title="Super Resolution (x4) Image Synthesizer",
+        examples=[
+            [os.path.join(os.path.dirname(__file__), "low-res-images", "building.png")],
+            [os.path.join(os.path.dirname(__file__), "low-res-images", "plant.png")],
+            [os.path.join(os.path.dirname(__file__), "low-res-images", "penguin.png")],
+            [os.path.join(os.path.dirname(__file__), "low-res-images", "vietnam_park.jpg")],
+        ]
     )
     gr_interface.launch()
