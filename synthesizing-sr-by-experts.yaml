@@ -14,3 +14,6 @@ dependencies:
   - huggingface_hub
   - pillow
   - pyyaml
+  - pip
+  - pip:
+    - gradio-imageslider
