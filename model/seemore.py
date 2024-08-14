@@ -1,3 +1,4 @@
+# Adapted from https://github.com/eduardzamfir/seemoredetails/blob/main/basicsr/archs/seemore_arch.py
 from typing import Tuple, List
 from torch import Tensor
 
