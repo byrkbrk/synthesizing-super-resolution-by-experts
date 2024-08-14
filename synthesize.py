@@ -5,7 +5,7 @@ from synthesizer import SRSynthesizer
 
 def parse_arguments():
     """Returns parsed arguments"""
-    parser = ArgumentParser(description="Synthesize super resolution images (x4) by SeeMore")
+    parser = ArgumentParser(description="Synthesize  (4x upscaled) super-resolution images by SeeMore")
     parser.add_argument("image_name",
                         type=str,
                         default=None,
