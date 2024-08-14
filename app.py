@@ -13,13 +13,14 @@ if __name__ == "__main__":
                                                    save=False,
                                                    return_input=True),
         inputs=[gr.Image(type="pil", label="Input")],
-        outputs=ImageSlider(type="pil", label="Output"),
-        title="Super Resolution (x4) Image Synthesizer",
+        outputs=ImageSlider(type="pil", label="Output", show_download_button=True),
+        title="Super Resolution Image Synthesizer",
         examples=[
             [os.path.join(os.path.dirname(__file__), "low-res-images", "building.png")],
             [os.path.join(os.path.dirname(__file__), "low-res-images", "plant.png")],
             [os.path.join(os.path.dirname(__file__), "low-res-images", "penguin.png")],
             [os.path.join(os.path.dirname(__file__), "low-res-images", "vietnam_park.jpg")],
-        ]
+        ],
+        description="Synthesize (4x-upscaled) super-resolved images"
     )
     gr_interface.launch()
