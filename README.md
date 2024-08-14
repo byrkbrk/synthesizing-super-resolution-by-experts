@@ -2,7 +2,9 @@
 
 ## Introduction
 
-## Setting Up the Environment
+  We build a module that synthesizes super-resolution images by 4x upscaling. While preparing, we utilized the pretrained model [SeemoRe](https://arxiv.org/abs/2402.03412) provided in [HuggingFace](https://huggingface.co/eduardzamfir/SeemoRe-T/tree/main).
+
+## Setting Up the Environment
 
 ## Synthesizing SR Image
 
