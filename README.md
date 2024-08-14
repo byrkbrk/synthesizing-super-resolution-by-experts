@@ -2,7 +2,7 @@
 
 ## Introduction
 
-  We build a module that synthesizes super-resolution images by 4x upscaling. While preparing, we utilize the pretrained model [SeemoRe](https://arxiv.org/abs/2402.03412) provided by [eduardzamfir at HuggingFace](https://huggingface.co/eduardzamfir/SeemoRe-T/tree/main).
+  We build a module that synthesizes super-resolution images by 4x upscaling. While preparing, we utilize the pretrained model [SeemoRe](https://arxiv.org/abs/2402.03412) provided by [eduardzamfir at HuggingFace](https://huggingface.co/eduardzamfir/SeemoRe-T/tree/main). The demo is accessible at [the HuggingFace space](https://huggingface.co/spaces/byrkbrk/Synthesize-super-resolution-images).
 
 
 ## Setting Up the Environment
