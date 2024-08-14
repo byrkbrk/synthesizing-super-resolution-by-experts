@@ -1,0 +1,9 @@
+torch
+numpy
+torchvision
+einops
+gradio
+huggingface-hub
+pillow
+PyYAML
+gradio_imageslider
