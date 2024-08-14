@@ -79,3 +79,18 @@ The output images seen below (left: Original, right: Super-resolved) will be sav
 </p>
 
 ## Synthesizing by using Gradio
+
+To run the gradio app on your local computer, execute:
+
+~~~
+python3 app.py
+~~~
+Then, visit the url [http://127.0.0.1:7860](http://127.0.0.1:7860) to open the interface.
+
+### Example usage
+
+See the display below for an example usage of the module via Gradio.
+
+<p align="left">
+  <img src="files-for-readme/sr_synthesizer_app_ss.png" width="100%" />
+</p>
