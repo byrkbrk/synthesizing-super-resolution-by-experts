@@ -30,6 +30,19 @@
 
 ### Using Pip
 
+1. Download & install [Python](https://www.python.org/downloads/) (version==3.11)
+2. Clone the repository:
+    ~~~
+    git clone https://github.com/byrkbrk/synthesizing-super-resolution-by-experts.git
+    ~~~
+3. Change the directory:
+    ~~~
+    cd synthesizing-super-resolution-by-experts
+    ~~~
+4. Install packages using `pip`:
+    ~~~
+    pip install -r requirements.txt
+    ~~~
 
 ## Synthesizing SR Image
 
