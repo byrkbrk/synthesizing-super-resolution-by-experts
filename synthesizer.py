@@ -52,7 +52,6 @@ class SRSynthesizer(object):
         """Returns instantiated model for given arguments"""
         model = SeemoRe(**self.read_model_config_file(model_config_name)).to(device)
         model.load_state_dict(self.load_checkpoint(checkpoint_name, device))
-        print("the model instantiated successfully!")
         return model
     
     def read_model_config_file(self, config_name):
@@ -99,8 +98,3 @@ class SRSynthesizer(object):
         dir_names = ["low-res-images", "synthesized-images"]
         for dir_name in dir_names:
             os.makedirs(os.path.join(root, dir_name), exist_ok=True)
-
-
-if __name__ == "__main__":
-    image_name = "penguin.png"
-    SRSynthesizer().synthesize(image_name)
