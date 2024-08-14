@@ -1,5 +1,8 @@
 # Synthesize Super Resolution Image by Experts Mining
 
+## Introduction
+
+## Setting Up the Environment
 
 ## Synthesizing SR Image
 
@@ -20,3 +23,5 @@ python3 synthesize.py plant.png
   <img src="low-res-images/plant.png" width="49%" />
   <img src="files-for-readme/plant.png" width="49%" />
 </p>
+
+## Synthesizing by using Gradio
